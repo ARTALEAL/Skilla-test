@@ -28,6 +28,10 @@
   position: relative;
 }
 
+.side-menu__nav-list-item:hover {
+  cursor: pointer;
+}
+
 .side-menu__nav-list-item_active::after {
   content: '';
   display: inline-block;
@@ -168,6 +172,11 @@
   border-radius: 4px;
   max-width: 200px;
   width: 100%;
+}
+
+.side-menu__button:hover {
+  background-color: #002cfb;
+  cursor: pointer;
 }
 
 .side-menu__button_pay {
