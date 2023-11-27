@@ -4,6 +4,7 @@ import { getFormatDate } from '../../utils/utils';
 import searchLogo from '../../images/basic search.svg';
 import avatar from '../../images/avatar-header.png';
 import arrow from '../../images/keyboard_arrow_down_black_24dp 1.svg';
+import BalanceButton from '../elements/BalanceButton/BalanceButton';
 
 function Calls() {
   return (
@@ -83,6 +84,11 @@ function Calls() {
           </button>
         </div>
       </header>
+      <section className="calls-section">
+        <div className="calls-section__buttons-container">
+          <BalanceButton />
+        </div>
+      </section>
     </main>
   );
 }
