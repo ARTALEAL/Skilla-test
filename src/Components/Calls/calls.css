@@ -8,6 +8,8 @@
   max-height: 64px;
   padding: 14px 120px;
   box-shadow: 0px 4px 5px 0px #e9edf3;
+  display: flex;
+  justify-content: space-between;
 }
 
 .calls-header__info-container {
@@ -108,4 +110,71 @@ hr[data-color='red-end'] {
   height: 6px;
   border-radius: 0px 12px 12px 0px;
   background: #dee6f5;
+}
+
+.calls-header__user-container {
+  display: flex;
+  align-items: center;
+}
+
+.calls-header__user-container-search-btn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 48px;
+  margin-right: 56px;
+}
+
+.calls-header__user-container-search-btn:hover {
+  cursor: pointer;
+}
+
+.calls-header__user-container-search-btn-img {
+  width: 32px;
+  height: 48px;
+}
+
+.calls-header__user-container-select {
+  background: transparent;
+  border: none;
+  color: #899cb1;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 140%;
+  appearance: none;
+  min-width: 290px;
+}
+
+.calls-header__user-container-select:hover {
+  cursor: pointer;
+}
+
+.calls-header__user-container-select-wrapper {
+  position: relative;
+  margin-right: 41px;
+}
+
+.calls-header__user-container-select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../images/keyboard_arrow_down_black_24dp\ 1.svg);
+  background-position: center;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+.calls-header__user-container-profile-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.calls-header__user-container-profile-btn:hover {
+  cursor: pointer;
 }
