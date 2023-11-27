@@ -1,6 +1,6 @@
 import SideMenu from '../SideMenu/SideMenu';
 import './calls.css';
-import { getFormatDateForHeader } from '../../utils/utils';
+import { getFormatDate } from '../../utils/utils';
 import searchLogo from '../../images/basic search.svg';
 import avatar from '../../images/avatar-header.png';
 import arrow from '../../images/keyboard_arrow_down_black_24dp 1.svg';
@@ -11,9 +11,7 @@ function Calls() {
       <SideMenu />
       <header className="calls-header">
         <div className="calls-header__info-container">
-          <div className="calls-header__date">
-            {getFormatDateForHeader(new Date())}
-          </div>
+          <div className="calls-header__date">{getFormatDate(new Date())}</div>
           <div className="calls-header__calls-info">
             <div className="calls-header__calls-info-item">
               <p className="calls-header__calls-info-item-text">

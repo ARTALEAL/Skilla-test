@@ -56,7 +56,7 @@ function SideMenu() {
           <img
             src={warnIcon}
             alt="Логотип предупреждение"
-            className="side-menu__button-logo"
+            className="side-menu__button-logo side-menu__button-logo_big"
           />
         </button>
       </nav>

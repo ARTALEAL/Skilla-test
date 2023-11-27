@@ -1,4 +1,4 @@
-export const getFormatDateForHeader = (date) => {
+export const getFormatDate = (date) => {
   const str = date.toLocaleString('default', {
     weekday: 'long',
     day: 'numeric',
