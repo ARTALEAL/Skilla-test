@@ -1,0 +1,12 @@
+.filter-calls__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.filter-calls__search-input {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+}

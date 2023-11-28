@@ -6,6 +6,7 @@ import avatar from '../../images/avatar-header.png';
 import arrow from '../../images/keyboard_arrow_down_black_24dp 1.svg';
 import BalanceButton from '../elements/BalanceButton/BalanceButton';
 import DatePicker from '../elements/DatePicker/DatePicker';
+import FilterCalls from '../elements/FilterCalls/FilterCalls';
 
 function Calls() {
   return (
@@ -90,6 +91,7 @@ function Calls() {
           <BalanceButton />
           <DatePicker />
         </div>
+        <FilterCalls />
       </section>
     </main>
   );
