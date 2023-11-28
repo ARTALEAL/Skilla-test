@@ -1,0 +1,33 @@
+.date-picker {
+  display: flex;
+  align-items: center;
+}
+
+.date-picker__arrow {
+  background-color: transparent;
+  border: none;
+}
+
+.date-picker__arrow:hover path {
+  cursor: pointer;
+  fill: #002cfb;
+}
+
+.date-picker__choose-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #005ff8;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 114.286%;
+}
+
+.date-picker__choose-btn:hover svg path {
+  fill: #002cfb;
+}
+.date-picker__choose-btn:hover {
+  color: #002cfb;
+}

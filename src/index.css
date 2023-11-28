@@ -13,3 +13,7 @@
   --text-green: #00a775;
   --ui-red: #ea1a4f;
 }
+
+button:hover {
+  cursor: pointer;
+}
