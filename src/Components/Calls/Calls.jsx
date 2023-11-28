@@ -7,6 +7,7 @@ import arrow from '../../images/keyboard_arrow_down_black_24dp 1.svg';
 import BalanceButton from '../elements/BalanceButton/BalanceButton';
 import DatePicker from '../elements/DatePicker/DatePicker';
 import FilterCalls from '../elements/FilterCalls/FilterCalls';
+import CallsTable from '../elements/CallsTable/CallsTable';
 
 function Calls() {
   return (
@@ -92,6 +93,7 @@ function Calls() {
           <DatePicker />
         </div>
         <FilterCalls />
+        <CallsTable data={[1, 2, 3, 4]} />
       </section>
     </main>
   );
