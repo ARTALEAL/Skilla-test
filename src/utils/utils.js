@@ -26,7 +26,7 @@ export const convertDuration = (seconds) => {
   }
 };
 
-export const getDaysDates = (date, numberDays = 2) => {
+export const getDaysDates = (date, numberDays) => {
   const oneDayMs = 24 * 60 * 60 * 1000;
 
   return {

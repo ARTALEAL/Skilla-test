@@ -19,6 +19,8 @@ import { getCalls } from '../../utils/api';
 function Calls() {
   const [calls, setCalls] = useState([]);
   const [isLoading, setIsLoading] = useState('false');
+  const [days, setDays] = useState(2);
+
   async function getData(filter) {
     try {
       setIsLoading(true);
@@ -32,8 +34,8 @@ function Calls() {
     }
   }
 
-  function filterDays() {
-    const dates = getDaysDates(new Date(), 2);
+  function filterDays(days) {
+    const dates = getDaysDates(new Date(), days);
     const { start, end } = dates;
     const started = start.split(',');
     const ended = end.split(',');
@@ -66,11 +68,25 @@ function Calls() {
   }
 
   useEffect(() => {
-    const renderData = async () => filterDays();
+    const renderData = async () => filterDays(days);
     renderData();
-  }, []);
+  }, [days]);
 
-  console.log(calls);
+  function prevDays() {
+    if (days) {
+      setDays(days - 1);
+      filterDays(days);
+      console.log(days);
+    }
+  }
+
+  function nextDays() {
+    setDays(days + 1);
+    filterDays(days);
+    console.log(days);
+  }
+  console.log(days);
+  // console.log(calls);
 
   return (
     <main className="calls">
@@ -131,7 +147,7 @@ function Calls() {
               className="calls-header__user-container-search-btn-img"
             />
           </button>
-          <div class="calls-header__user-container-select-wrapper">
+          <div className="calls-header__user-container-select-wrapper">
             <select
               className="calls-header__user-container-select"
               name="agent"
@@ -157,6 +173,9 @@ function Calls() {
             week={filterWeek}
             month={filterMonth}
             year={filterYear}
+            prev={prevDays}
+            next={nextDays}
+            count={days}
           />
         </div>
         <FilterCalls />
