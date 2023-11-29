@@ -1,6 +1,11 @@
 import SideMenu from '../SideMenu/SideMenu';
 import './calls.css';
-import { getFormatDate } from '../../utils/utils';
+import {
+  getFormatDate,
+  getDaysDates,
+  getMonthDates,
+  getYearsDates,
+} from '../../utils/utils';
 import searchLogo from '../../images/basic search.svg';
 import avatar from '../../images/avatar-header.png';
 import arrow from '../../images/keyboard_arrow_down_black_24dp 1.svg';
@@ -8,8 +13,65 @@ import BalanceButton from '../elements/BalanceButton/BalanceButton';
 import DatePicker from '../elements/DatePicker/DatePicker';
 import FilterCalls from '../elements/FilterCalls/FilterCalls';
 import CallsTable from '../elements/CallsTable/CallsTable';
+import { useEffect, useState } from 'react';
+import { getCalls } from '../../utils/api';
 
 function Calls() {
+  const [calls, setCalls] = useState([]);
+  const [isLoading, setIsLoading] = useState('false');
+  async function getData(filter) {
+    try {
+      setIsLoading(true);
+      const data = await getCalls(filter);
+      const { results } = data;
+      setCalls(results);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function filterDays() {
+    const dates = getDaysDates(new Date(), 2);
+    const { start, end } = dates;
+    const started = start.split(',');
+    const ended = end.split(',');
+    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+  }
+
+  function filterWeek() {
+    const dates = getDaysDates(new Date(), 6);
+    const { start, end } = dates;
+    const started = start.split(',');
+    const ended = end.split(',');
+    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+  }
+
+  function filterMonth() {
+    const dates = getMonthDates(new Date());
+    const { start, end } = dates;
+    const started = start.split(',');
+    const ended = end.split(',');
+    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+  }
+
+  function filterYear() {
+    const dates = getYearsDates(new Date());
+    const { start, end } = dates;
+    const started = start.split(',');
+    const ended = end.split(',');
+    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+    console.log('year');
+  }
+
+  useEffect(() => {
+    const renderData = async () => filterDays();
+    renderData();
+  }, []);
+
+  console.log(calls);
+
   return (
     <main className="calls">
       <SideMenu />
@@ -90,10 +152,15 @@ function Calls() {
       <section className="calls-section">
         <div className="calls-section__buttons-container">
           <BalanceButton />
-          <DatePicker />
+          <DatePicker
+            days={filterDays}
+            week={filterWeek}
+            month={filterMonth}
+            year={filterYear}
+          />
         </div>
         <FilterCalls />
-        <CallsTable data={[1, 2, 3, 4]} />
+        <CallsTable data={calls} loading={isLoading} />
       </section>
     </main>
   );

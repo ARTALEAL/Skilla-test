@@ -61,6 +61,12 @@ span[data-color='red'] {
   gap: 0;
 }
 
+.calls-table__header-item-employee-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
 hr[data-color='green'] {
   display: inline-block;
   width: 68px;

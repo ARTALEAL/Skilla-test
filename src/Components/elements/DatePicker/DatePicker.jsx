@@ -1,6 +1,30 @@
+import { useState } from 'react';
 import './datepicker.css';
 
-function DatePicker() {
+function DatePicker({ days, week, month, year }) {
+  const [openModal, setOpenModal] = useState(false);
+  const [chooseTime, setChooseTime] = useState('3 дня');
+  const openDatePopup = () => setOpenModal(!openModal);
+  const handle3days = () => {
+    days();
+    setChooseTime('3 дня');
+    setOpenModal(false);
+  };
+  const handleWeek = () => {
+    week();
+    setChooseTime('Неделя');
+    setOpenModal(false);
+  };
+  const handleMonth = () => {
+    month();
+    setChooseTime('Месяц');
+    setOpenModal(false);
+  };
+  const handleYear = () => {
+    year();
+    setChooseTime('Год');
+    setOpenModal(false);
+  };
   return (
     <div className="date-picker">
       <button className="date-picker__arrow">
@@ -24,7 +48,7 @@ function DatePicker() {
           </defs>
         </svg>
       </button>
-      <button className="date-picker__choose-btn">
+      <button className="date-picker__choose-btn" onClick={openDatePopup}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -37,7 +61,7 @@ function DatePicker() {
             fill="#ADBFDF"
           />
         </svg>
-        3 дня
+        {chooseTime}
       </button>
       <button className="date-picker__arrow">
         <svg
@@ -60,6 +84,22 @@ function DatePicker() {
           </defs>
         </svg>
       </button>
+      {openModal && (
+        <ul className="date-picker__modal">
+          <li className="date-picker__modal-item" onClick={handle3days}>
+            3 дня
+          </li>
+          <li className="date-picker__modal-item" onClick={handleWeek}>
+            Неделя
+          </li>
+          <li className="date-picker__modal-item" onClick={handleMonth}>
+            Месяц
+          </li>
+          <li className="date-picker__modal-item" onClick={handleYear}>
+            Год
+          </li>
+        </ul>
+      )}
     </div>
   );
 }
