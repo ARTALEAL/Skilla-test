@@ -20,6 +20,7 @@ function Calls() {
   const [calls, setCalls] = useState([]);
   const [isLoading, setIsLoading] = useState('false');
   const [days, setDays] = useState(2);
+  const [types, setTypes] = useState('');
 
   async function getData(filter) {
     try {
@@ -76,17 +77,15 @@ function Calls() {
     if (days) {
       setDays(days - 1);
       filterDays(days);
-      console.log(days);
     }
   }
 
   function nextDays() {
     setDays(days + 1);
     filterDays(days);
-    console.log(days);
   }
-  console.log(days);
-  // console.log(calls);
+
+  console.log(calls);
 
   return (
     <main className="calls">
