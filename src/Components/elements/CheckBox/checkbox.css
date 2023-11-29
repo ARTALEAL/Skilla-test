@@ -1,0 +1,45 @@
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.checkbox__label span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid #adbfdf;
+  border-radius: 3px;
+  opacity: 0;
+}
+
+.checkbox__label span:hover {
+  opacity: 1;
+}
+
+.checkbox__label:hover {
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + span {
+  background-image: url(../../../images/checked-default.svg);
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 1;
+}
+
+input[type='checkbox']:checked + span:hover {
+  background-image: url(../../../images/checked-hover.svg);
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

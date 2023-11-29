@@ -1,3 +1,4 @@
+import CheckBox from '../CheckBox/CheckBox';
 import './callsTable.css';
 
 function CallsTable({ data }) {
@@ -6,7 +7,7 @@ function CallsTable({ data }) {
       <thead>
         <tr className="calls-table__header-row">
           <th className="calls-table__header-item calls-table__header-item-checkbox">
-            <input type="checkbox" />
+            <CheckBox />
           </th>
           <th className="calls-table__header-item calls-table__header-item-type">
             Тип
@@ -34,7 +35,7 @@ function CallsTable({ data }) {
           return (
             <tr className="calls-table__row">
               <td className="calls-table__header-item-checkbox">
-                <input type="checkbox" />
+                <CheckBox />
               </td>
               <td className="calls-table__header-item-type">
                 <svg

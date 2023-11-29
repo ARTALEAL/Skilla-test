@@ -67,3 +67,12 @@ td {
   font-weight: 400;
   line-height: 140%;
 }
+
+tr:hover {
+  cursor: pointer;
+  background-color: #f8fafd;
+}
+
+tr:hover span {
+  opacity: 1;
+}
