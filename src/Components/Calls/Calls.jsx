@@ -20,7 +20,8 @@ function Calls() {
   const [calls, setCalls] = useState([]);
   const [isLoading, setIsLoading] = useState('false');
   const [days, setDays] = useState(2);
-  const [types, setTypes] = useState('');
+  const [callsFilter, setCallsFilter] = useState('');
+  const [currentFilter, setCurrentFilter] = useState('');
 
   async function getData(filter) {
     try {
@@ -40,7 +41,9 @@ function Calls() {
     const { start, end } = dates;
     const started = start.split(',');
     const ended = end.split(',');
-    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+    getData(
+      `date_start=${started[0]}&date_end=${ended[0]}&limit=10000${callsFilter}`
+    );
   }
 
   function filterWeek() {
@@ -48,7 +51,10 @@ function Calls() {
     const { start, end } = dates;
     const started = start.split(',');
     const ended = end.split(',');
-    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+    getData(
+      `date_start=${started[0]}&date_end=${ended[0]}&limit=10000${callsFilter}`
+    );
+    setCurrentFilter('week');
   }
 
   function filterMonth() {
@@ -56,7 +62,10 @@ function Calls() {
     const { start, end } = dates;
     const started = start.split(',');
     const ended = end.split(',');
-    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
+    getData(
+      `date_start=${started[0]}&date_end=${ended[0]}&limit=10000${callsFilter}`
+    );
+    setCurrentFilter('month');
   }
 
   function filterYear() {
@@ -64,14 +73,11 @@ function Calls() {
     const { start, end } = dates;
     const started = start.split(',');
     const ended = end.split(',');
-    getData(`date_start=${started[0]}&date_end=${ended[0]}&limit=10000`);
-    console.log('year');
+    getData(
+      `date_start=${started[0]}&date_end=${ended[0]}&limit=10000${callsFilter}`
+    );
+    setCurrentFilter('year');
   }
-
-  useEffect(() => {
-    const renderData = async () => filterDays(days);
-    renderData();
-  }, [days]);
 
   function prevDays() {
     if (days) {
@@ -85,6 +91,36 @@ function Calls() {
     filterDays(days);
   }
 
+  const handleType = (type) => {
+    console.log(type);
+    if (type === 0) {
+      console.log('outcome');
+      setCallsFilter(`&in_out=0`);
+    } else if (type === 1) {
+      console.log('incoming');
+      setCallsFilter('&in_out=1');
+    } else {
+      setCallsFilter('');
+    }
+  };
+
+  useEffect(() => {
+    if (currentFilter === 'week') {
+      const renderData = async () => filterWeek();
+      renderData();
+    } else if (currentFilter === 'month') {
+      const renderData = async () => filterMonth();
+      renderData();
+    } else if (currentFilter === 'year') {
+      const renderData = async () => filterYear();
+      renderData();
+    } else {
+      const renderData = async () => filterDays(days);
+      renderData();
+    }
+  }, [days, callsFilter]);
+
+  console.log(callsFilter);
   console.log(calls);
 
   return (
@@ -177,7 +213,7 @@ function Calls() {
             count={days}
           />
         </div>
-        <FilterCalls />
+        <FilterCalls types={handleType} />
         <CallsTable data={calls} loading={isLoading} />
       </section>
     </main>

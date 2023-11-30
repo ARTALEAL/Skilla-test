@@ -1,25 +1,33 @@
 import { useState } from 'react';
 import './filterCalls.css';
+import { callTypes } from '../../../utils/constants';
 
-function FilterCalls() {
+function FilterCalls({ types }) {
   const [isOpenTypes, setIsOpenTypes] = useState(false);
   const [isFilters, setIsFilters] = useState(false);
+  const [currentType, setCurrentType] = useState(callTypes[2]);
 
   const handleOpenTypes = () => {
     setIsOpenTypes(!isOpenTypes);
   };
 
-  const handleMiss = () => {
+  const filterIncome = () => {
     setIsFilters(true);
+    setCurrentType(callTypes[1]);
+    types(1);
     setIsOpenTypes(false);
   };
 
-  const handleSuccess = () => {
+  const filterOutCome = () => {
     setIsFilters(true);
+    setCurrentType(callTypes[0]);
+    types(0);
     setIsOpenTypes(false);
   };
 
   const resetFilters = () => {
+    setCurrentType(callTypes[2]);
+    types();
     setIsFilters(false);
   };
 
@@ -65,7 +73,7 @@ function FilterCalls() {
                 viewBox="0 0 15 15"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_2878)">
+                <g clipPath="url(#clip0_1_2878)">
                   <path
                     d="M12.75 3.88125L11.8688 3L8.375 6.49375L4.88125 3L4 3.88125L7.49375 7.375L4 10.8688L4.88125 11.75L8.375 8.25625L11.8688 11.75L12.75 10.8688L9.25625 7.375L12.75 3.88125Z"
                     fill="#ADBFDF"
@@ -84,7 +92,7 @@ function FilterCalls() {
             onClick={handleOpenTypes}
           >
             <button className="filter-calls__filters-list-button">
-              Все типы
+              {currentType}
             </button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,15 +111,15 @@ function FilterCalls() {
               <ul className="filter-calls__filters-list-item-filter">
                 <li
                   className="filter-calls__filters-list-item-filter-item"
-                  onClick={handleMiss}
+                  onClick={filterIncome}
                 >
-                  Не дозвонился
+                  Входящие
                 </li>
                 <li
                   className="filter-calls__filters-list-item-filter-item"
-                  onClick={handleSuccess}
+                  onClick={filterOutCome}
                 >
-                  Дозвонился
+                  Исходящие
                 </li>
               </ul>
             )}
