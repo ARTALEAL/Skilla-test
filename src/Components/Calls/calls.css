@@ -200,3 +200,12 @@ hr[data-color='red-end'] {
   justify-content: flex-end;
   gap: 48px;
 }
+
+@media (width < 1584px) {
+  .calls-header {
+    display: none;
+  }
+  .calls-section {
+    margin-top: 0;
+  }
+}
