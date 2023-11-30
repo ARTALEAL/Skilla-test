@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/Skilla-test/static/css/main.4e9216b9.css",
+    "main.js": "/Skilla-test/static/js/main.a5006f22.js",
+    "static/media/Skilla-logo.svg": "/Skilla-test/static/media/Skilla-logo.9ddb9459f695dd9560049b04fd75d098.svg",
+    "static/media/settings-24px.svg": "/Skilla-test/static/media/settings-24px.3d296497b7681298aeb2.svg",
+    "static/media/chart-timeline-variant.svg": "/Skilla-test/static/media/chart-timeline-variant.6e02172c3ae46f71c94a.svg",
+    "static/media/people-24px.svg": "/Skilla-test/static/media/people-24px.4828b9d893a00b9c3e61.svg",
+    "static/media/calls-24px.svg": "/Skilla-test/static/media/calls-24px.01027ebb2b055f8c3fca.svg",
+    "static/media/local_library_black_24dp.svg": "/Skilla-test/static/media/local_library_black_24dp.fb72cba868daa8b85c04.svg",
+    "index.html": "/Skilla-test/index.html",
+    "static/media/basic search.svg": "/Skilla-test/static/media/basic search.a5e90dc7bf785ac9d9de6c77a9e0eda2.svg",
+    "static/media/perm_identity_black_24dp.svg": "/Skilla-test/static/media/perm_identity_black_24dp.7a43097ef16816441ea5.svg",
+    "static/media/orders-24px.svg": "/Skilla-test/static/media/orders-24px.fe9e055c2958a8a89518.svg",
+    "static/media/briefcase-outline.svg": "/Skilla-test/static/media/briefcase-outline.e5ab3193ddd5f48351f6.svg",
+    "static/media/alert_24.svg": "/Skilla-test/static/media/alert_24.c201e423c3d9d2bcea6c20666cc5ccba.svg",
+    "static/media/mail_outline-24px.svg": "/Skilla-test/static/media/mail_outline-24px.54a76cfa9a5bfd26098f.svg",
+    "static/media/documents-24px.svg": "/Skilla-test/static/media/documents-24px.2c74de5265981ed61a5d.svg",
+    "static/media/checked-default.svg": "/Skilla-test/static/media/checked-default.58c1a156bc0d44715118.svg",
+    "static/media/checked-hover.svg": "/Skilla-test/static/media/checked-hover.45d2cc58aa954cf4d569.svg",
+    "static/media/keyboard_arrow_down_black_24dp 1.svg": "/Skilla-test/static/media/keyboard_arrow_down_black_24dp 1.9730aa3eefee966677942e7995d18a03.svg",
+    "static/media/add-icon.svg": "/Skilla-test/static/media/add-icon.d711b5b353e743150c797180daf8d7d6.svg",
+    "static/media/call-fail.svg": "/Skilla-test/static/media/call-fail.8d5ea4bdbac707d98967e2992fee56aa.svg",
+    "static/media/call.svg": "/Skilla-test/static/media/call.86503fb4898d80770a9b02ff2ec0fac6.svg",
+    "main.4e9216b9.css.map": "/Skilla-test/static/css/main.4e9216b9.css.map",
+    "main.a5006f22.js.map": "/Skilla-test/static/js/main.a5006f22.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e9216b9.css",
+    "static/js/main.a5006f22.js"
+  ]
+}
